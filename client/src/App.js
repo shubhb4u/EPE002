@@ -6,7 +6,11 @@ function App() {
   const [state, setState] = useState ({
     name: '',
     email: '',
-    enquiry: ''
+    enquiry: '',
+    resourceSiteName:'',
+    resourceSiteCode:'',
+    county:'',
+    totalNumberOfInverters:''
   });
 
   useEffect(() => {
@@ -38,7 +42,10 @@ function App() {
     const payload = {
       name: state.name,
       email: state.email,
-      enquiry: state.enquiry
+      resourceSiteCode: state.resourceSiteCode,
+      resourceSiteName: state.resourceSiteName,
+      county: state.county,
+      totalNumberOfInverters: state.totalNumberOfInverters
     };
     axios({
       url: '/api/save',
@@ -59,7 +66,11 @@ function App() {
     setState({
       name: '',
       email: '',
-      enquiry: ''
+      enquiry: '',
+      resourceSiteCode:'',
+      resourceSiteName:'',
+      county:'',
+      totalNumberOfInverters:''
     });
   };
 
@@ -78,9 +89,26 @@ function App() {
           <p class="material-form__error">Please enter valid email address</p>
         </div>
         <div className="material-form__container">
-          <input className="material-form__input" type="text" name="enquiry" placeholder="Enquiry" value={state.enquiry} onChange={handleChange} />
+          <input className="material-form__input" type="text" name="resourceSiteCode " placeholder="Resource Site Code " value={state.resourceSiteCode} onChange={handleChange} />
           <div class="material-form__focus-animation"></div>
         </div>
+        <div className="material-form__container">
+          <input className="material-form__input" type="text" name="resourceSiteName" placeholder="Resource Site Name" value={state.resourceSiteName} onChange={handleChange} />
+          <div class="material-form__focus-animation"></div>
+        </div>
+        <div className="material-form__container">
+          <input className="material-form__input" type="text" name="county" placeholder="County" value={state.county} onChange={handleChange} />
+          <div class="material-form__focus-animation"></div>
+        </div>
+        <div className="material-form__container">
+          <input className="material-form__input" type="date" name="county" placeholder="Desired Energization Date" value={state.county} onChange={handleChange} />
+          <div class="material-form__focus-animation"></div>
+        </div>
+        <div className="material-form__container">
+          <input className="material-form__input" type="number" name="totalNumberOfInverters" placeholder="Total number of Inverters" value={state.totalNumberOfInverters} onChange={handleChange} />
+          <div class="material-form__focus-animation"></div>
+        </div>
+        
           <button className="material-form__button">Submit</button>
       </form>
     </div>

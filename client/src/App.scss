@@ -25,6 +25,8 @@ body {
     display: flex;
     flex-direction: column;
     width: 50vw;
+    max-height: 300px;
+    overflow: auto; 
     padding: 4rem 3rem;
     background-color: #fff;
     font-size: $font-size;
